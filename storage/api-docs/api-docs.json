@@ -250,6 +250,63 @@
                 }
             }
         },
+        "/api/mz-users/checkSession": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "aec36c8c2f0367c39a3ab98e7d883332",
+                "requestBody": {
+                    "request": "Check session",
+                    "description": "Check session user",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    ""
+                                ],
+                                "properties": {
+                                    "token": {
+                                        "description": "token",
+                                        "type": "string",
+                                        "example": "Тест"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "boolen",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "boolen",
+                                    "properties": {
+                                        "errors": {
+                                            "title": "Validation errors",
+                                            "description": "Validation errors object",
+                                            "properties": {
+                                                "field1": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "example": "The field1 field is required."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "boolen"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/mz-users/{id}": {
             "delete": {
                 "tags": [

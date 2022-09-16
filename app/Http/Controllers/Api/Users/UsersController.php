@@ -75,12 +75,20 @@ class UsersController extends Controller
      */
     public function login(Request $request)
     {
-        $user = Users::select()
+
+        $user = Users::with(['role', 'clinic', 'specialties'])
             ->where(['login' => $request->login])
             ->first();
+
         if ($user) {
             if (password_verify($request->password, $user->password)) {
-                return $user;
+                $user->remember_token = Str::random('64');
+                $user->save();
+                return [
+                    'token' => $user->remember_token,
+                    'user' => $user
+                ];
+
             }
         }
         return ['message' => 'Пользователь не найден'];
@@ -208,6 +216,56 @@ class UsersController extends Controller
 
 
     }
+
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * @OA\Post(
+     *     path="/api/mz-users/checkSession",
+     *     tags={"Users"},
+     *     @OA\RequestBody(
+     *    request="Check session",
+     *    description="Check session user",
+     *    @OA\JsonContent(
+     *        type="object",
+     *        required={""},
+     *          @OA\Property(property="token",description="token", type="string", example="Тест"),
+     *    )
+     * ),
+     *     @OA\Response(
+     *          response=200,
+     *          description="boolen",
+     *      @OA\JsonContent(
+     *     type="boolen",
+     *     title="boolen",
+     *     @OA\Property(
+     *     property="errors",
+     *     type="object",
+     *     title="Validation errors",
+     *     description="Validation errors object",
+     *     @OA\Property(property="field1", type="array", @OA\Items(example="The field1 field is required.")),
+     * )
+     * )
+     *      ),
+     * )
+     */
+    public function checkSession(Request $request)
+    {
+
+        if (isset($request->token)) {
+            $user = Users::whereRememberToken($request->token)->first();
+            if (isset($user)) {
+                if ($user->remember_token == $request->token) {
+                    return 1;
+                }
+            }
+        }
+
+        return 0;
+
+    }
+
 
     /**
      * Display the specified resource.

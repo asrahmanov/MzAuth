@@ -12,6 +12,18 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Clinics newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Clinics query()
  * @mixin \Eloquent
+ * @property int $id
+ * @property string $name
+ * @property string $short_name
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Clinics whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Clinics whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Clinics whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Clinics whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Clinics whereShortName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Clinics whereUpdatedAt($value)
  */
 class Clinics extends Model
 {

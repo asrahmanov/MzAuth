@@ -40,6 +40,7 @@ reg_routes('mz-users', \App\Http\Controllers\Api\Users\UsersController::class,
     [
         ['method' => 'get', 'uri' => 'get-by-id', 'pathParams'=>['id']],
         ['method' => 'get', 'uri' => 'login', 'pathParams'=>['login', 'password']],
+        ['method' => 'post', 'uri' => 'checkSession'],
     ]
 );
 
