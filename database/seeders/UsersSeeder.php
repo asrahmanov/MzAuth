@@ -42,7 +42,7 @@ class UsersSeeder extends Seeder
                 "clinic_id" => $item->clinic_id,
                 "login" => $item->login,
                 "first_name" => $item->first_name,
-                "last_name" => $item->last_name,
+                "last_name" => '-',
                 "password" => $item->password,
                 "hide" => $item->hide,
                 "role_id" => $role_id,
