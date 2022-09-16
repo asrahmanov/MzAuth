@@ -1,0 +1,499 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "mz_auth_API",
+        "description": "",
+        "contact": {
+            "email": ""
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/mz-users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "f95786e60dfb33964372d4eaf58f1142",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "4a3c16a8cb16e45e30925cf544e5e2bd",
+                "requestBody": {
+                    "request": "Create Users",
+                    "description": "Create Users Fields",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    ""
+                                ],
+                                "properties": {
+                                    "role_id": {
+                                        "description": "0",
+                                        "type": "number",
+                                        "example": "1"
+                                    },
+                                    "speciality_id": {
+                                        "description": "0",
+                                        "type": "number",
+                                        "example": "1"
+                                    },
+                                    "clinic_id": {
+                                        "description": "0",
+                                        "type": "number",
+                                        "example": "1"
+                                    },
+                                    "pid": {
+                                        "description": "Текст",
+                                        "type": "string",
+                                        "example": "Тест"
+                                    },
+                                    "login": {
+                                        "description": "Текст",
+                                        "type": "string",
+                                        "example": "Тест"
+                                    },
+                                    "first_name": {
+                                        "description": "Текст",
+                                        "type": "string",
+                                        "example": "Тест"
+                                    },
+                                    "last_name": {
+                                        "description": "Текст",
+                                        "type": "string",
+                                        "example": "Тест"
+                                    },
+                                    "email": {
+                                        "description": "Текст",
+                                        "type": "string",
+                                        "example": "Тест"
+                                    },
+                                    "password": {
+                                        "description": "Текст",
+                                        "type": "string",
+                                        "example": "Тест"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success Create",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": "1"
+                                        },
+                                        "role_id": {
+                                            "description": "0",
+                                            "type": "number",
+                                            "example": "1"
+                                        },
+                                        "speciality_id": {
+                                            "description": "0",
+                                            "type": "number",
+                                            "example": "1"
+                                        },
+                                        "clinic_id": {
+                                            "description": "0",
+                                            "type": "number",
+                                            "example": "1"
+                                        },
+                                        "pid": {
+                                            "description": "Текст",
+                                            "type": "string",
+                                            "example": "Тест"
+                                        },
+                                        "login": {
+                                            "description": "Текст",
+                                            "type": "string",
+                                            "example": "Тест"
+                                        },
+                                        "first_name": {
+                                            "description": "Текст",
+                                            "type": "string",
+                                            "example": "Тест"
+                                        },
+                                        "last_name": {
+                                            "description": "Текст",
+                                            "type": "string",
+                                            "example": "Тест"
+                                        },
+                                        "email": {
+                                            "description": "Текст",
+                                            "type": "string",
+                                            "example": "Тест"
+                                        },
+                                        "password": {
+                                            "description": "Текст",
+                                            "type": "string",
+                                            "example": "Тест"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation errors",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "errors",
+                                    "description": "errors object",
+                                    "properties": {
+                                        "errors": {
+                                            "title": "Validation errors",
+                                            "description": "Validation errors object",
+                                            "properties": {
+                                                "field1": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "example": "The field1 field is required."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/mz-users/get-by-id/{id}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "65fc898e137ee372e43c9910e8c9f11d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "1",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/mz-users/login/{login}/{password}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "015265f4a5ad5e4142ebfc6bee5106ad",
+                "parameters": [
+                    {
+                        "name": "login",
+                        "in": "path",
+                        "description": "login",
+                        "required": false,
+                        "schema": {
+                            "type": "text"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "path",
+                        "description": "password",
+                        "required": false,
+                        "schema": {
+                            "type": "text"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/mz-users/{id}": {
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "72d3e9e58d332c6d562d88ecb0f97b01",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success Delete",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "is_deleted": {
+                                            "type": "boolean",
+                                            "example": true
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error Delete",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "is_deleted": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "a4e701310214350b1e41b7fb73a050f9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Update Users",
+                    "description": "Update Users Fields",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    ""
+                                ],
+                                "properties": {
+                                    "role_id": {
+                                        "description": "0",
+                                        "type": "number",
+                                        "example": "1"
+                                    },
+                                    "speciality_id": {
+                                        "description": "0",
+                                        "type": "number",
+                                        "example": "1"
+                                    },
+                                    "clinic_id": {
+                                        "description": "0",
+                                        "type": "number",
+                                        "example": "1"
+                                    },
+                                    "pid": {
+                                        "description": "Текст",
+                                        "type": "string",
+                                        "example": "Тест"
+                                    },
+                                    "login": {
+                                        "description": "Текст",
+                                        "type": "string",
+                                        "example": "Тест"
+                                    },
+                                    "first_name": {
+                                        "description": "Текст",
+                                        "type": "string",
+                                        "example": "Тест"
+                                    },
+                                    "last_name": {
+                                        "description": "Текст",
+                                        "type": "string",
+                                        "example": "Тест"
+                                    },
+                                    "email": {
+                                        "description": "Текст",
+                                        "type": "string",
+                                        "example": "Тест"
+                                    },
+                                    "password": {
+                                        "description": "Текст",
+                                        "type": "string",
+                                        "example": "Тест"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success Create",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": "1"
+                                        },
+                                        "role_id": {
+                                            "description": "0",
+                                            "type": "number",
+                                            "example": "1"
+                                        },
+                                        "speciality_id": {
+                                            "description": "0",
+                                            "type": "number",
+                                            "example": "1"
+                                        },
+                                        "clinic_id": {
+                                            "description": "0",
+                                            "type": "number",
+                                            "example": "1"
+                                        },
+                                        "pid": {
+                                            "description": "Текст",
+                                            "type": "string",
+                                            "example": "Тест"
+                                        },
+                                        "login": {
+                                            "description": "Текст",
+                                            "type": "string",
+                                            "example": "Тест"
+                                        },
+                                        "first_name": {
+                                            "description": "Текст",
+                                            "type": "string",
+                                            "example": "Тест"
+                                        },
+                                        "last_name": {
+                                            "description": "Текст",
+                                            "type": "string",
+                                            "example": "Тест"
+                                        },
+                                        "email": {
+                                            "description": "Текст",
+                                            "type": "string",
+                                            "example": "Тест"
+                                        },
+                                        "password": {
+                                            "description": "Текст",
+                                            "type": "string",
+                                            "example": "Тест"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation errors",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "errors",
+                                    "description": "errors object",
+                                    "properties": {
+                                        "errors": {
+                                            "title": "Validation errors",
+                                            "description": "Validation errors object",
+                                            "properties": {
+                                                "field1": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "example": "The field1 field is required."
+                                                    }
+                                                },
+                                                "field2": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "example": "The field2 field is required."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "QCResouce": {
+                "title": "QCResource",
+                "description": "QC resource",
+                "properties": {
+                    "data": {
+                        "title": "Data",
+                        "description": "Data wrapper",
+                        "type": "array",
+                        "items": {
+                            "ref": null
+                        }
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "QCResource"
+                }
+            }
+        }
+    }
+}
