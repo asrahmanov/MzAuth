@@ -81,9 +81,10 @@ class UsersController extends Controller
             ->first();
 
         if(password_verify($request->password, $user->password)) {
-            echo "ок";
+           return Response::json($user, 200);
+        } else {
+            return Response::json(['message' => 'Пользователь не найден'], 200);
         }
-
 
 
     }
