@@ -75,18 +75,15 @@ class UsersController extends Controller
      */
     public function login(Request $request)
     {
-
         $user = Users::select()
             ->where(['login' => $request->login])
             ->first();
-
-        if(password_verify($request->password, $user->password)) {
-           return Response::json($user, 200);
-        } else {
-            return Response::json(['message' => 'Пользователь не найден'], 200);
+        if ($user) {
+            if (password_verify($request->password, $user->password)) {
+                return $user;
+            }
         }
-
-
+        return ['message' => 'Пользователь не найден'];
     }
 
 
@@ -120,12 +117,6 @@ class UsersController extends Controller
 //            return Response::json(['message' => __('auth.failed')], 401);
 //        }
 //    }
-
-
-
-
-
-
 
 
     /**
@@ -200,11 +191,11 @@ class UsersController extends Controller
     public function store(Request $request)
     {
 
-       if($request->id > 0) {
-           $user = Users::whereId($request->id)->first();
-       } else {
-           $user = new Users();
-       }
+        if ($request->id > 0) {
+            $user = Users::whereId($request->id)->first();
+        } else {
+            $user = new Users();
+        }
 
         $validator = $user->validate($request->all());
         if ($validator->fails()) {
