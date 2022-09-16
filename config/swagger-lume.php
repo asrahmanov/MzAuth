@@ -7,7 +7,7 @@ return [
         | Edit to set the api's title
         |--------------------------------------------------------------------------
          */
-        'title' => 'PULSAR INTERVIEW SERVICE',
+        'title' => 'MASTER CLINIC AUTH SERVICES',
     ],
 
     'routes' => [
