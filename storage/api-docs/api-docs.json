@@ -9,6 +9,310 @@
         "version": "1.0.0"
     },
     "paths": {
+        "/api/mz-clinics": {
+            "get": {
+                "tags": [
+                    "Clinics"
+                ],
+                "operationId": "f4a8529118ac75bc61b74aa2e47d3a6c",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Clinics"
+                ],
+                "operationId": "675412072a7424d07e95fc246b2cf265",
+                "requestBody": {
+                    "request": "Create Clinics",
+                    "description": "Create Clinics Fields",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    ""
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "description": "Текст",
+                                        "type": "string",
+                                        "example": "Тест"
+                                    },
+                                    "short_name": {
+                                        "description": "Текст",
+                                        "type": "string",
+                                        "example": "Тест"
+                                    },
+                                    "hide": {
+                                        "description": "Скрыть",
+                                        "type": "number",
+                                        "example": "0"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success Create",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": "1"
+                                        },
+                                        "name": {
+                                            "description": "Текст",
+                                            "type": "string",
+                                            "example": "Тест"
+                                        },
+                                        "short_name": {
+                                            "description": "Текст",
+                                            "type": "string",
+                                            "example": "Тест"
+                                        },
+                                        "hide": {
+                                            "description": "Скрыть",
+                                            "type": "number",
+                                            "example": "0"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation errors",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "errors",
+                                    "description": "errors object",
+                                    "properties": {
+                                        "errors": {
+                                            "title": "Validation errors",
+                                            "description": "Validation errors object",
+                                            "properties": {
+                                                "field1": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "example": "The field1 field is required."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/mz-clinics/get-by-id/{id}": {
+            "get": {
+                "tags": [
+                    "Clinics"
+                ],
+                "operationId": "8075bc8dabd0361c00b595f51872cfb0",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "1",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/mz-clinics/{id}": {
+            "delete": {
+                "tags": [
+                    "Clinics"
+                ],
+                "operationId": "d4d5868c8efd7eab4690ca84034b9dd8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success Delete",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "is_deleted": {
+                                            "type": "boolean",
+                                            "example": true
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error Delete",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "is_deleted": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Clinics"
+                ],
+                "operationId": "7fdc504558ffd7ae42c81863555ea435",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Update Clinics",
+                    "description": "Update Clinics Fields",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    ""
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "description": "Текст",
+                                        "type": "string",
+                                        "example": "Тест"
+                                    },
+                                    "short_name": {
+                                        "description": "Текст",
+                                        "type": "string",
+                                        "example": "Тест"
+                                    },
+                                    "hide": {
+                                        "description": "Скрыть",
+                                        "type": "number",
+                                        "example": "0"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success Create",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": "1"
+                                        },
+                                        "name": {
+                                            "description": "Текст",
+                                            "type": "string",
+                                            "example": "Тест"
+                                        },
+                                        "short_name": {
+                                            "description": "Текст",
+                                            "type": "string",
+                                            "example": "Тест"
+                                        },
+                                        "hide": {
+                                            "description": "Скрыть",
+                                            "type": "number",
+                                            "example": "0"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation errors",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "errors",
+                                    "description": "errors object",
+                                    "properties": {
+                                        "errors": {
+                                            "title": "Validation errors",
+                                            "description": "Validation errors object",
+                                            "properties": {
+                                                "field1": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "example": "The field1 field is required."
+                                                    }
+                                                },
+                                                "field2": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "example": "The field2 field is required."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/mz-users": {
             "get": {
                 "tags": [

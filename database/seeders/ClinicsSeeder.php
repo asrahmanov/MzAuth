@@ -17,11 +17,16 @@ class ClinicsSeeder extends Seeder
 
         foreach ($clinics as $key => $item) {
             $insertArray = [];
+            $hide = 0;
+            if ($key == 5) {
+              $hide = 1;
+            }
 
             $insertArray[] = [
                 "id" => $key,
                 "name" => $item->name,
-                "short_name" => $item->short_name
+                "short_name" => $item->short_name,
+                "hide" => $hide
             ];
 
             \DB::table('mz_clinics')->insert($insertArray);

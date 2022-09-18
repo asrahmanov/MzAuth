@@ -17,6 +17,7 @@ class CreateClinicsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('short_name');
+            $table->boolean('hide')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

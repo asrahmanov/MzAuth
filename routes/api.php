@@ -45,6 +45,16 @@ reg_routes('mz-users', \App\Http\Controllers\Api\Users\UsersController::class,
 );
 
 
+reg_routes('mz-clinics', \App\Http\Controllers\Api\Clinics\ClinicsController::class,
+    $router,
+    [],
+    [],
+    [
+        ['method' => 'get', 'uri' => 'get-by-id', 'pathParams'=>['id']],
+    ]
+);
+
+
 function reg_routes($name, $controllerName, $router, $only = [], $except = [], $customUses = [])
 {
 
