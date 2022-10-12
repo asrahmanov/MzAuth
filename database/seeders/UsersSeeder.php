@@ -17,20 +17,22 @@ class UsersSeeder extends Seeder
         $users = file_get_contents('http://91.142.85.12:35080/new/GLOBALPHP/migration/getUsers.php', false);
         $users = json_decode($users);
 
+
+        $speciality = Specialties::all();
+        $roles = Roles::all();
+
+//        var_dump($roles);
+
         foreach ($users as $key => $item) {
             $insertArray = [];
-
-            $speciality = Specialties::all();
-            $roles = Roles::all();
-
+            var_dump($item->role_name);
             var_dump($item->speciality_name);
-            if($item->speciality_name == '' OR $item->speciality_name == 0) {
+
+
+            if($item->speciality_name == 0) {
                 $item->speciality_name = "Отсутсвует";
             }
 
-            if($item->role_name == '' OR $item->role_name == 0) {
-                $item->role_name = "Отсутсвует";
-            }
 
 
 

@@ -14,6 +14,7 @@ class RolesSeeder extends Seeder
 
         \DB::table('mz_roles')->insert([
             ['name' => 'Отсутсвует'],
+            ['name' => 'Оператор'],
             ['name' => 'Доктор'],
             ['name' => 'Менеджер'],
             ['name' => 'Администратор'],
