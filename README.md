@@ -20,15 +20,15 @@ npm run watch
 <pre>
 sudo docker-compose up -d
 
-sudo docker exec mz_auth_sevice_fpm composer install
+sudo docker exec mz-profile-fpm composer install
 
 cp .env.prod .env
 
-sudo docker exec mz_auth_sevice_fpm php artisan swagger-lume:generate
+sudo docker exec mz-profile-fpm php artisan swagger-lume:generate
 
-sudo docker exec mz_auth_sevice_fpm php artisan migrate
+sudo docker exec mz-profile-fpm php artisan migrate
 
-sudo docker exec mz_auth_sevice_fpm php artisan db:seed
+sudo docker exec mz-profile-fpm php artisan db:seed
 </pre> 
 
 
