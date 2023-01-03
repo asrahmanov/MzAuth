@@ -4,7 +4,7 @@ services:
 
   nginx:
     image: nginx:alpine
-    container_name: mz-auth-nginx
+    container_name: mz-profile-nginx
     restart: unless-stopped
     ports:
       - 35081:80
@@ -21,8 +21,8 @@ services:
         uid: 1000
       context: ./
       dockerfile: docker/Fpm.Dockerfile
-    image: mz-auth
-    container_name: mz-auth-fpm
+    image: mz-profile
+    container_name: mz-profile-fpm
     restart: unless-stopped
     working_dir: /var/www/
     volumes:

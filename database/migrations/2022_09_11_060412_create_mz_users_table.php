@@ -19,7 +19,6 @@ class CreateMzUsersTable extends Migration
             $table->increments('id', true);
             $table->string('pid');
             $table->bigInteger('role_id')->unsigned()->index(); // this is working
-//            $table->bigInteger('position_id')->unsigned()->index(); // this is working
             $table->bigInteger('speciality_id')->unsigned()->index(); // this is working
             $table->bigInteger('clinic_id')->unsigned()->index(); // this is working
             $table->string('login')->unique();
@@ -31,15 +30,12 @@ class CreateMzUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
-
         });
 
         Schema::table('mz_users', function ($table) {
             $table->foreign('role_id')->references('id')->on('mz_roles');
-//            $table->foreign('position_id')->references('id')->on('mz_positions');
             $table->foreign('speciality_id')->references('id')->on('mz_specialties');
             $table->foreign('clinic_id')->references('id')->on('mz_clinics');
-
         });
 
 

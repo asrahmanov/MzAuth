@@ -67,7 +67,6 @@ class Users extends Model
     protected $fillable = [
         'pid',
         'role_id',
-//        'position_id',
         'speciality_id',
         'clinic_id',
         'login',

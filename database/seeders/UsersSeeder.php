@@ -21,23 +21,18 @@ class UsersSeeder extends Seeder
         $speciality = Specialties::all();
         $roles = Roles::all();
 
-//        var_dump($roles);
 
         foreach ($users as $key => $item) {
             $insertArray = [];
-            var_dump($item->role_name);
-            var_dump($item->speciality_name);
-
 
             if($item->speciality_name == 0) {
                 $item->speciality_name = "Отсутсвует";
             }
 
 
-
-
             $speciality_id = search_in_array_objects($item->speciality_name, $speciality, 'name');
             $role_id = search_in_array_objects($item->role_name, $roles, 'name');
+
             $insertArray[] = [
                 "id" => $key,
                 "pid" => $item->pid,
